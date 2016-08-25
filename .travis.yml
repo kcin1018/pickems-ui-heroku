@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: aoEyFD6lwGYjGyg3y/R3QvrfK77VUb9vv9iOJfgN2T89s7Ozsfcq5/cqO/vh334GsI6jZER16G1Mu3WlJitQsYHjj3lNHpwBP6d5pL+b+0WZ9rwSC3xG4y49cPu6g+M3S+w7VbU6saZPnJCwsm5QyyrP5S4swWjO9FEbHeIJ7xpqN+wnKnMpxGnHY/1peP0zVPR1W+M1wUcbnz4kJVS/+in1V199eus5LErqRaTGLuW5/jbRic01l2WgYB5CubWQINehwafYov5piExmYj+lgVvCPoQs7cLUQHrMD0wgGLGHOdsZlEjL7yWqdaC4ZwBz43VgekDjPN7Sj+pkDK8eVkrQH0D1Rp7IBvV+EctHHrLXCZ9ZdO+cyjVdJMMKBGtpDSMQrxOi/8EnvZfpXpQmkCn+LfvKNocLt6xcRnbBSv4rT1uh3G2lhU76vysfe00HDUK1ocrh3aw1JprIcCb0Tz4h6iIODH/b/xdsyUJlT11GYawatU3kzpnH/ULcEs9TF+oqkQtz2MtjxmBLKUaF3h6doZ76m0XOhXYBLuepU2xUUooTTb3XALnMHyjqCqZHKepOkW1Z0F7RbesERfR6M1qi3Lt8SWzor59psSh1DASBWe5nSY70+tqBAj4Qk55cPs3HodFRPxKRqJqJbMztuQuA3T6pNVQcG9s/4bE50/A=
+  app: pickems-fb
+  on:
+    repo: kcin1018/pickems-ui-heroku
